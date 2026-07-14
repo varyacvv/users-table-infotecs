@@ -29,3 +29,14 @@
   background: #f7f9fc;
   cursor: pointer;
 }
+.table th {
+  user-select: none;
+}
+
+.table th:not(:nth-child(n + 5)) {
+  cursor: pointer;
+}
+
+.table th:not(:nth-child(n + 5)):hover {
+  background: #1d4ed8;
+}
