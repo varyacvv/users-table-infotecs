@@ -16,20 +16,25 @@ function App() {
       return;
     }
 
-    if (sortOrder === "asc") {
+    if (sortOrder === "none") {
+      setSortOrder("asc");
+    } else if (sortOrder === "asc") {
       setSortOrder("desc");
-    } else if (sortOrder === "desc") {
+    } else {
       setSortField("");
       setSortOrder("none");
-    } else {
-      setSortOrder("asc");
     }
   }
 
   const sortedUsers = sortUsers(users, sortField, sortOrder);
 
-  if (loading) return <h2>Загрузка...</h2>;
-  if (error) return <h2>{error}</h2>;
+  if (loading) {
+    return <h2>Загрузка...</h2>;
+  }
+
+  if (error) {
+    return <h2>{error}</h2>;
+  }
 
   return (
     <main>
