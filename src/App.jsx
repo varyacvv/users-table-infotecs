@@ -14,6 +14,7 @@ function App() {
   const [page, setPage] = useState(1);
   const [selectedUser, setSelectedUser] = useState(null);
   const [search, setSearch] = useState("");
+  const [gender, setGender] = useState("all");
 
   const usersPerPage = 10;
 
@@ -38,12 +39,17 @@ function App() {
   }
 
   const sortedUsers = sortUsers(users, sortField, sortOrder);
-  const filteredUsers = sortedUsers.filter((user) => {
-    const fullName =
-      `${user.lastName} ${user.firstName} ${user.maidenName}`.toLowerCase();
+ const filteredUsers = sortedUsers.filter((user) => {
+  const fullName =
+    `${user.lastName} ${user.firstName} ${user.maidenName}`.toLowerCase();
 
-    return fullName.includes(search.toLowerCase());
-  });
+  const matchesSearch = fullName.includes(search.toLowerCase());
+
+  const matchesGender =
+    gender === "all" || user.gender === gender;
+
+  return matchesSearch && matchesGender;
+});
 
   const start = (page - 1) * usersPerPage;
   const end = start + usersPerPage;
@@ -66,6 +72,11 @@ function App() {
   search={search}
   setSearch={(value) => {
     setSearch(value);
+    setPage(1);
+  }}
+  gender={gender}
+  setGender={(value) => {
+    setGender(value);
     setPage(1);
   }}
 />

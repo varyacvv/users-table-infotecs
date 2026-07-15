@@ -31,3 +31,13 @@
 .filters input:focus {
   border-color: #2563eb;
 }
+
+.filters select {
+  margin-left: 15px;
+  padding: 10px 14px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+
+  font-size: 16px;
+}
