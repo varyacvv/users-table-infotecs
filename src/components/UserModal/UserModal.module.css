@@ -1,50 +1,47 @@
 .overlay {
-    position: fixed;
-    inset: 0;
+  position: fixed;
+  inset: 0;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    background: rgba(0,0,0,.45);
+  background: rgba(0, 0, 0, 0.45);
 }
 
 .modal {
+  position: relative;
 
-    position: relative;
+  width: 420px;
 
-    width: 420px;
+  padding: 30px;
 
-    padding: 30px;
+  border-radius: 12px;
 
-    border-radius: 12px;
-
-    background: white;
+  background: white;
 }
 
-.modal img{
+.modal img {
+  display: block;
 
-    display:block;
+  width: 120px;
 
-    width:120px;
+  margin: 0 auto 20px;
 
-    margin:0 auto 20px;
-
-    border-radius:50%;
+  border-radius: 50%;
 }
 
-.closeButton{
+.closeButton {
+  position: absolute;
 
-    position:absolute;
+  top: 15px;
+  right: 15px;
 
-    top:15px;
-    right:15px;
+  border: none;
 
-    border:none;
+  background: none;
 
-    background:none;
+  cursor: pointer;
 
-    cursor:pointer;
-
-    font-size:22px;
+  font-size: 22px;
 }

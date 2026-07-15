@@ -5,10 +5,12 @@ function Filters({
   setSearch,
   gender,
   setGender,
+  country,
+  setCountry,
+  countries,
 }) {
   return (
     <div className={styles.filters}>
-      <span className={styles.icon}>🔍</span>
 
       <input
         type="text"
@@ -16,13 +18,23 @@ function Filters({
         value={search}
         onChange={(event) => setSearch(event.target.value)}
       />
-      <select
+<select
   value={gender}
   onChange={(event) => setGender(event.target.value)}
 >
   <option value="all">Все</option>
   <option value="male">Мужской</option>
   <option value="female">Женский</option>
+</select>
+<select
+  value={country}
+  onChange={(event) => setCountry(event.target.value)}
+>
+  {countries.map((country) => (
+    <option key={country} value={country}>
+      {country === "all" ? "Все страны" : country}
+    </option>
+  ))}
 </select>
     </div>
   );

@@ -15,6 +15,7 @@ function App() {
   const [selectedUser, setSelectedUser] = useState(null);
   const [search, setSearch] = useState("");
   const [gender, setGender] = useState("all");
+  const [country, setCountry] = useState("all");
 
   const usersPerPage = 10;
 
@@ -39,17 +40,22 @@ function App() {
   }
 
   const sortedUsers = sortUsers(users, sortField, sortOrder);
- const filteredUsers = sortedUsers.filter((user) => {
-  const fullName =
-    `${user.lastName} ${user.firstName} ${user.maidenName}`.toLowerCase();
+  const countries = [
+    "all",
+    ...new Set(users.map((user) => user.address.country)),
+  ].sort();
+  const filteredUsers = sortedUsers.filter((user) => {
+    const fullName =
+      `${user.lastName} ${user.firstName} ${user.maidenName}`.toLowerCase();
 
-  const matchesSearch = fullName.includes(search.toLowerCase());
+    const matchesSearch = fullName.includes(search.toLowerCase());
 
-  const matchesGender =
-    gender === "all" || user.gender === gender;
+    const matchesGender = gender === "all" || user.gender === gender;
+    const matchesCountry =
+      country === "all" || user.address.country === country;
 
-  return matchesSearch && matchesGender;
-});
+    return matchesSearch && matchesGender && matchesCountry;
+  });
 
   const start = (page - 1) * usersPerPage;
   const end = start + usersPerPage;
@@ -69,17 +75,23 @@ function App() {
     <main>
       <h1>Пользователи</h1>
       <Filters
-  search={search}
-  setSearch={(value) => {
-    setSearch(value);
-    setPage(1);
-  }}
-  gender={gender}
-  setGender={(value) => {
-    setGender(value);
-    setPage(1);
-  }}
-/>
+        search={search}
+        setSearch={(value) => {
+          setSearch(value);
+          setPage(1);
+        }}
+        gender={gender}
+        setGender={(value) => {
+          setGender(value);
+          setPage(1);
+        }}
+        country={country}
+        setCountry={(value) => {
+          setCountry(value);
+          setPage(1);
+        }}
+        countries={countries}
+      />
       <Table
         users={currentUsers}
         onSort={handleSort}

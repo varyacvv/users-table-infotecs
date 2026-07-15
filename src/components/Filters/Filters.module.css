@@ -5,17 +5,6 @@
   margin: 0 auto 20px;
 }
 
-.icon {
-  position: absolute;
-  top: 50%;
-  left: 14px;
-
-  transform: translateY(-50%);
-
-  font-size: 18px;
-  pointer-events: none;
-}
-
 .filters input {
   width: 320px;
   padding: 10px 14px 10px 42px;
@@ -35,9 +24,7 @@
 .filters select {
   margin-left: 15px;
   padding: 10px 14px;
-
   border: 1px solid #d1d5db;
   border-radius: 8px;
-
   font-size: 16px;
 }
