@@ -3,6 +3,7 @@ import { useUsers } from "./hooks/useUsers";
 import { sortUsers } from "./utils/sortUsers";
 import Table from "./components/Table/Table";
 import Pagination from "./components/Pagination/Pagination";
+import UserModal from "./components/UserModal/UserModal";
 
 function App() {
   const { users, loading, error } = useUsers();
@@ -10,6 +11,7 @@ function App() {
   const [sortField, setSortField] = useState("");
   const [sortOrder, setSortOrder] = useState("none");
   const [page, setPage] = useState(1);
+  const [selectedUser, setSelectedUser] = useState(null);
 
   const usersPerPage = 10;
 
@@ -17,7 +19,7 @@ function App() {
     if (field !== sortField) {
       setSortField(field);
       setSortOrder("asc");
-      setPage(1); // после сортировки возвращаемся на первую страницу
+      setPage(1);
       return;
     }
 
@@ -58,12 +60,18 @@ function App() {
         onSort={handleSort}
         sortField={sortField}
         sortOrder={sortOrder}
+        onUserClick={setSelectedUser}
       />
 
       <Pagination
         page={page}
         totalPages={totalPages}
         onPageChange={setPage}
+      />
+
+      <UserModal
+        user={selectedUser}
+        onClose={() => setSelectedUser(null)}
       />
     </main>
   );

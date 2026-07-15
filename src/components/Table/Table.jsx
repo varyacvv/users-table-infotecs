@@ -1,11 +1,24 @@
 import styles from "./Table.module.css";
 
-function Table({ users, onSort, sortField, sortOrder }) {
+function Table({
+  users,
+  onSort,
+  sortField,
+  sortOrder,
+  onUserClick,
+}) {
   function getArrow(field) {
-    if (sortField !== field) return "";
+    if (sortField !== field) {
+      return "";
+    }
 
-    if (sortOrder === "asc") return " ↑";
-    if (sortOrder === "desc") return " ↓";
+    if (sortOrder === "asc") {
+      return " ↑";
+    }
+
+    if (sortOrder === "desc") {
+      return " ↓";
+    }
 
     return "";
   }
@@ -39,7 +52,10 @@ function Table({ users, onSort, sortField, sortOrder }) {
 
         <tbody>
           {users.map((user) => (
-            <tr key={user.id}>
+            <tr
+              key={user.id}
+              onClick={() => onUserClick(user)}
+            >
               <td>
                 {user.lastName} {user.firstName} {user.maidenName}
               </td>
