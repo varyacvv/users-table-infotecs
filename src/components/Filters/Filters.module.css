@@ -1,0 +1,33 @@
+.filters {
+  position: relative;
+
+  max-width: 1400px;
+  margin: 0 auto 20px;
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+
+  transform: translateY(-50%);
+
+  font-size: 18px;
+  pointer-events: none;
+}
+
+.filters input {
+  width: 320px;
+  padding: 10px 14px 10px 42px;
+
+  font-size: 16px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+
+  outline: none;
+}
+
+.filters input:focus {
+  border-color: #2563eb;
+}
