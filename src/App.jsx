@@ -17,6 +17,16 @@ function App() {
   const [gender, setGender] = useState("all");
   const [country, setCountry] = useState("all");
 
+  const [columnWidths, setColumnWidths] = useState({
+  fullName: 260,
+  age: 90,
+  gender: 120,
+  phone: 180,
+  email: 260,
+  country: 180,
+  city: 180,
+});
+
   const usersPerPage = 10;
 
   function handleSort(field) {
@@ -93,12 +103,14 @@ function App() {
         countries={countries}
       />
       <Table
-        users={currentUsers}
-        onSort={handleSort}
-        sortField={sortField}
-        sortOrder={sortOrder}
-        onUserClick={setSelectedUser}
-      />
+  users={currentUsers}
+  onSort={handleSort}
+  sortField={sortField}
+  sortOrder={sortOrder}
+  onUserClick={setSelectedUser}
+  columnWidths={columnWidths}
+  setColumnWidths={setColumnWidths}
+/>
 
       <Pagination page={page} totalPages={totalPages} onPageChange={setPage} />
 

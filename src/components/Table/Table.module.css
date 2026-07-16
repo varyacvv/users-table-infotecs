@@ -9,7 +9,8 @@
 }
 
 .table {
-  width: 100%;
+  width: max-content;
+  min-width: 100%;
   border-collapse: collapse;
 }
 
@@ -39,4 +40,30 @@
 
 .table th:not(:nth-child(n + 5)):hover {
   background: #1d4ed8;
+}
+
+.table th,
+.table td {
+  white-space: nowrap;
+}
+
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.resizeHandle {
+  width: 8px;
+  min-width: 8px;
+  height: 24px;
+  cursor: col-resize;
+  margin-left: 8px;
+  border-right: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.resizeHandle:hover {
+  border-right-color: white;
 }
