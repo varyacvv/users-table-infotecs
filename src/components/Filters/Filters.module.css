@@ -6,27 +6,46 @@
   gap: 12px;
   align-items: center;
   background: #ffffff;
-  padding: 16px 20px;
+  padding: 16px 24px;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(214, 51, 132, 0.06);
 }
 
+.filterGroup {
+  flex: 1; /* заставляем все группы растягиваться */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 150px; /* чтобы на маленьких экранах не сжимались слишком сильно */
+}
+
+.label {
+  font-size: 15px;
+  font-weight: 500;
+  color: #6b4a5a;
+  white-space: nowrap;
+}
+
 .filters input,
 .filters select {
+  width: 100%; /* занимают всю ширину filterGroup */
   padding: 10px 16px;
   border: 1px solid #fbcfe8;
-  border-radius: 30px; /* округлые поля */
+  border-radius: 30px;
   font-size: 15px;
   background: #fff;
   transition: 0.25s;
   outline: none;
   color: #333;
 }
+
 .filters input:focus,
 .filters select:focus {
   border-color: #ec4899;
   box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.15);
 }
+
+.filters input:hover,
 .filters select:hover {
   border-color: #ec4899;
 }
