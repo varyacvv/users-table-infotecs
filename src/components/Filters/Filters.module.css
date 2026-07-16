@@ -49,3 +49,16 @@
 .filters select:hover {
   border-color: #ec4899;
 }
+
+@media (max-width:768px){
+
+.filters{
+display:flex;
+flex-direction:column;
+}
+
+.filterGroup{
+width:100%;
+}
+
+}
