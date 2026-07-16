@@ -1,11 +1,11 @@
 .wrapper {
   width: 100%;
   max-width: 1400px;
-  margin: 40px auto;
+  margin: 30px auto;
   overflow-x: auto;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(214, 51, 132, 0.10);
 }
 
 .table {
@@ -15,38 +15,41 @@
 }
 
 .table th {
-  background: #2563eb;
-  color: white;
+  background: linear-gradient(135deg, #f472b6, #ec4899);
+  color: #fff;
   padding: 16px;
+  font-weight: 600;
   text-align: left;
+  border-bottom: 2px solid #f9a8d4;
 }
 
 .table td {
   padding: 14px 16px;
-  border-bottom: 1px solid #ececec;
+  border-bottom: 1px solid #fce7f3;
+  color: #4a4a4a;
 }
 
+.table tbody tr {
+  transition: background 0.2s ease;
+}
 .table tbody tr:hover {
-  background: #f7f9fc;
+  background: #fce7f3;
   cursor: pointer;
 }
+.table tbody tr:nth-child(even) {
+  background: #fff5f9;
+}
+
 .table th {
   user-select: none;
 }
-
-.table th:not(:nth-child(n + 5)) {
+/* для колонок с сортировкой (первые 4) */
+.table th:not(:nth-child(n+5)) {
   cursor: pointer;
 }
-
-.table th:not(:nth-child(n + 5)):hover {
-  background: #1d4ed8;
+.table th:not(:nth-child(n+5)):hover {
+  background: #f9a8d4;
 }
-
-.table th,
-.table td {
-  white-space: nowrap;
-}
-
 
 .header {
   display: flex;
@@ -61,9 +64,8 @@
   height: 24px;
   cursor: col-resize;
   margin-left: 8px;
-  border-right: 2px solid rgba(255, 255, 255, 0.5);
+  border-right: 2px solid rgba(255,255,255,0.5);
 }
-
 .resizeHandle:hover {
-  border-right-color: white;
+  border-right-color: #fce7f3;
 }
