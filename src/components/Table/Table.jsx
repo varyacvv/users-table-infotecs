@@ -75,6 +75,7 @@ function Table({
       <table className={styles.table}>
         <thead>
           <tr>
+            {/* //Колонка ФИО */}
             <th
               style={{ width: columnWidths.fullName }}
               onClick={() => onSort("fullName")}
@@ -88,7 +89,7 @@ function Table({
                 />
               </div>
             </th>
-
+            {/* //Колонка возраст */}
             <th
               style={{ width: columnWidths.age }}
               onClick={() => onSort("age")}
@@ -102,7 +103,7 @@ function Table({
                 />
               </div>
             </th>
-
+            {/* //Колонка пол */}
             <th
               style={{ width: columnWidths.gender }}
               onClick={() => onSort("gender")}
@@ -116,7 +117,7 @@ function Table({
                 />
               </div>
             </th>
-
+            {/* //Колонка телефон */}
             <th
               style={{ width: columnWidths.phone }}
               onClick={() => onSort("phone")}
@@ -130,7 +131,7 @@ function Table({
                 />
               </div>
             </th>
-
+            {/* //Колонка e-mail */}
             <th style={{ width: columnWidths.email }}>
               <div className={styles.header}>
                 <span>Email</span>
@@ -141,7 +142,7 @@ function Table({
                 />
               </div>
             </th>
-
+            {/* //Колонка страна */}
             <th style={{ width: columnWidths.country }}>
               <div className={styles.header}>
                 <span>Страна</span>
@@ -152,7 +153,7 @@ function Table({
                 />
               </div>
             </th>
-
+            {/* //Колонка город */}
             <th style={{ width: columnWidths.city }}>
               <div className={styles.header}>
                 <span>Город</span>
@@ -165,7 +166,7 @@ function Table({
             </th>
           </tr>
         </thead>
-
+        {/* Строки с данными пользователей */}
         <tbody>
           {users.map((user) => (
             <tr key={user.id} onClick={() => onUserClick(user)}>

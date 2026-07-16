@@ -28,7 +28,7 @@ function Filters({
           id="genderSelect"
           value={gender}
           onChange={(event) => setGender(event.target.value)}
-          title="Выберите пол"  // всплывающая подсказка при наведении
+          title="Выберите пол" // всплывающая подсказка при наведении
         >
           <option value="all">Все</option>
           <option value="male">Мужской</option>
