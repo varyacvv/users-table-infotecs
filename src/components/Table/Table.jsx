@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { motion } from "framer-motion";
 import styles from "./Table.module.css";
 
 function Table({
@@ -71,7 +72,12 @@ function Table({
   }
 
   return (
-    <div className={styles.wrapper}>
+    <motion.div
+      className={styles.wrapper}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+    >
       <table className={styles.table}>
         <thead>
           <tr>
@@ -189,7 +195,7 @@ function Table({
           ))}
         </tbody>
       </table>
-    </div>
+      </motion.div>
   );
 }
 
